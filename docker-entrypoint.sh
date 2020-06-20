@@ -2,7 +2,7 @@
 set -e
 
 if [ -z $DBENCH_MOUNTPOINT ]; then
-    DBENCH_MOUNTPOINT=/tmp
+    DBENCH_MOUNTPOINT=$(pwd)
 fi
 
 if [ -z $FIO_SIZE ]; then
