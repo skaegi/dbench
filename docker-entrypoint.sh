@@ -50,7 +50,7 @@ if [ "$1" = 'fio' ]; then
     echo
     echo
 
-    if [ "$DBENCH_QUICK" == "" ] || [ "$DBENCH_QUICK" == "no" ]; then
+    if [ -z $DBENCH_QUICK ] || [ "$DBENCH_QUICK" == "no" ]; then
         echo Testing Read Latency...
         READ_LATENCY=$(fio --randrepeat=0 --verify=0 --ioengine=libaio --direct=$FIO_DIRECT --name=read_latency --filename=$DBENCH_MOUNTPOINT/fiotest --bs=4K --iodepth=4 --size=$FIO_SIZE --readwrite=randread --time_based --ramp_time=2s --runtime=15s)
         echo "$READ_LATENCY"
